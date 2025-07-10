@@ -1,4 +1,4 @@
-## MANA System Plugin (Modular Ability & Networked Attributes)
+## String Wrangler
 ## Created by Matthew Janes (IndieGameDad) - 2025
 
 ## Inspector prefix handler for exposing tag dropdowns based on property name prefix.
