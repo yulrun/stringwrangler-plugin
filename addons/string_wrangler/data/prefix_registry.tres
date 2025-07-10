@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="StringPrefixRegistry" load_steps=2 format=3 uid="uid://b6s032a376rq8"]
+
+[ext_resource type="Script" uid="uid://d37xp73kchn28" path="res://addons/string_wrangler/data/prefix_registry.gd" id="1_o03yp"]
+
+[resource]
+script = ExtResource("1_o03yp")
+prefix_handlers = {
+"SWSampD_": {
+"allow_duplicates": true,
+"label": "Sample String List",
+"raw_values": Array[String](["A", "B", "C", "D", "A", "B", "C", "D"]),
+"show_none": true,
+"source": {
+"call_name": "",
+"script_resource": null,
+"type": ""
+},
+"source_type": "raw_array"
+},
+"SWSamp_": {
+"allow_duplicates": false,
+"label": "Sample String List",
+"raw_values": Array[String](["A", "B", "C", "D", "A", "B", "C", "D"]),
+"show_none": true,
+"source": {
+"call_name": "",
+"script_resource": null,
+"type": ""
+},
+"source_type": "raw_array"
+}
+}
+metadata/_custom_type_script = "uid://d37xp73kchn28"
