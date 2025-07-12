@@ -85,9 +85,20 @@ func _refresh() -> void:
 	var root: TreeItem = tree.create_item()
 	
 	var prefixes: Array[String] = prefix_registry.get_handlers()
-	prefixes.sort()
 	
-	for index in range(prefixes.size()):
+	var filtered_prefixes: Array[String]
+	var filter_bar_text: String = filter_bar.text.strip_edges().to_lower()
+	
+	if not filter_bar_text.is_empty():
+		for prefix in prefixes:
+			if prefix.to_lower().contains(filter_bar_text):
+				filtered_prefixes.append(prefix)
+	else:
+		filtered_prefixes = prefixes
+	
+	filtered_prefixes.sort()
+	
+	for index in range(filtered_prefixes.size()):
 		var item: TreeItem = tree.create_item(root)
 		var prefix_name: String = prefixes[index]
 		var description: String = prefix_registry.prefix_handlers[prefix_name].get("description", "No Description")

@@ -3,6 +3,7 @@
 
 ## Main plugin class responsible for managing string-based editor enhancements.
 ## Registers custom editor inspectors, prefix handlers, and UI tools.
+@icon("res://addons/string_wrangler/string_wrangler.svg")
 @tool class_name StringWrangler extends EditorPlugin
 
 
@@ -23,6 +24,7 @@ func _enter_tree() -> void:
 	master_panel_control_instance.name = "StringWrangler"
 	master_panel_control_instance.visible = true
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, master_panel_control_instance)
+	set_dock_tab_icon(master_panel_control_instance, load("res://addons/string_wrangler/string_wrangler.svg"))
 	add_tool_menu_item("String Wrangler (Toggle Dock)", Callable(self, "_toggle_dock"))
 
 
@@ -45,5 +47,6 @@ func _toggle_dock() -> void:
 	
 	if master_panel_visible:
 		add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, master_panel_control_instance)
+		set_dock_tab_icon(master_panel_control_instance, load("res://addons/string_wrangler/string_wrangler.svg"))
 	else:
 		remove_control_from_docks(master_panel_control_instance)
