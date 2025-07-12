@@ -12,6 +12,9 @@ const MASTER_PANEL_CONTROL_SCENE: PackedScene = preload("res://addons/string_wra
 var master_panel_control_instance: Control
 var string_suffix_handler_plugin: StringPrefixHandler
 
+var master_panel_visible: bool = true
+
+
 func _enter_tree() -> void:
 	string_suffix_handler_plugin = StringPrefixHandler.new()
 	add_inspector_plugin(string_suffix_handler_plugin)
@@ -20,6 +23,7 @@ func _enter_tree() -> void:
 	master_panel_control_instance.name = "StringWrangler"
 	master_panel_control_instance.visible = true
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, master_panel_control_instance)
+	add_tool_menu_item("String Wrangler (Toggle Dock)", Callable(self, "_toggle_dock"))
 
 
 func _exit_tree() -> void:
@@ -31,3 +35,15 @@ func _exit_tree() -> void:
 
 static func get_prefix_registry(cache_mode: ResourceLoader.CacheMode = 1) -> StringPrefixRegistry: 
 	return ResourceLoader.load(PREFIX_REGISTRY_PATH, "Resource", cache_mode)
+
+
+func _toggle_dock() -> void:
+	if not master_panel_control_instance:
+		return
+	
+	master_panel_visible = not master_panel_visible
+	
+	if master_panel_visible:
+		add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_UL, master_panel_control_instance)
+	else:
+		remove_control_from_docks(master_panel_control_instance)

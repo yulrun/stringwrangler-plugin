@@ -99,9 +99,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "The prefix name can be anything, but it’s recommended to start it with a capital letter for clarity, since Godot’s naming convention uses snake_case for variable names — making prefixed variables easier to spot.
+text = "The prefix name can be anything, but it’s recommended to start it with a capital letter for clarity, since Godot’s naming convention uses snake_case for variable names.
 
-Source scripts should also be tagged as @tool to ensure data can be accessed in the editor!"
+Source scripts should also be tagged as @tool to ensure data can be accessed in the editor, resources equally as viable."
 autowrap_mode = 2
 
 [node name="HBarPanelTop" type="Panel" parent="PopupWindow/VBoxContainer"]

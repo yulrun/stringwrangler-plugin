@@ -29,7 +29,7 @@ The result is a typo-free, self-documenting, editor-integrated selection tool fo
 
 ## Use Cases
 
-String Wrangler is ideal for systems that <strong>cannot</strong> use Enums due to dynamic data. While Enums work well for fixed constants, this plugin excels when your data is:
+String Wrangler is ideal for systems that <strong>cannot</strong> use Enums due to dynamic data. Or extremely large data sets. While Enums work well for fixed constants, this plugin excels when your data is:
 
 - Defined in resources, not code  
 - Grows or changes during development  
