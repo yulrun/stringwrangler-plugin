@@ -1,33 +1,43 @@
-[gd_resource type="Resource" script_class="StringPrefixRegistry" load_steps=2 format=3 uid="uid://b6s032a376rq8"]
+[gd_resource type="Resource" script_class="StringPrefixRegistry" load_steps=3 format=3 uid="uid://b3p87gb2ythrc"]
 
+[ext_resource type="Script" uid="uid://737srjfa4m6q" path="res://addons/string_wrangler/sample/string_wrangler_sample.gd" id="1_604vi"]
 [ext_resource type="Script" uid="uid://d37xp73kchn28" path="res://addons/string_wrangler/data/prefix_registry.gd" id="1_o03yp"]
 
 [resource]
 script = ExtResource("1_o03yp")
 prefix_handlers = {
-"SWSampD_": {
+"SWSampA_": {
 "allow_duplicates": true,
-"label": "Sample String List",
-"raw_values": Array[String](["A", "B", "C", "D", "A", "B", "C", "D"]),
+"description": "Sample from a variable array with 'None' option and duplicates.",
+"label": "Sample A",
 "show_none": true,
 "source": {
-"call_name": "",
-"script_resource": null,
-"type": ""
+"call_name": "sample_array",
+"script_resource": ExtResource("1_604vi"),
+"type": "Variable"
+}
 },
-"source_type": "raw_array"
-},
-"SWSamp_": {
+"SWSampB_": {
 "allow_duplicates": false,
-"label": "Sample String List",
-"raw_values": Array[String](["A", "B", "C", "D", "A", "B", "C", "D"]),
+"description": "Sample from a dataset without 'None' option and without duplicates.",
+"label": "Sample B",
+"show_none": false,
+"source": {
+"call_name": "sample_function_a",
+"script_resource": ExtResource("1_604vi"),
+"type": "Function"
+}
+},
+"SWSampC_": {
+"allow_duplicates": true,
+"description": "Sample from a dataset with 'None' option and duplicates.",
+"label": "Sample C",
 "show_none": true,
 "source": {
-"call_name": "",
-"script_resource": null,
-"type": ""
-},
-"source_type": "raw_array"
+"call_name": "sample_function_b",
+"script_resource": ExtResource("1_604vi"),
+"type": "Function"
+}
 }
 }
 metadata/_custom_type_script = "uid://d37xp73kchn28"

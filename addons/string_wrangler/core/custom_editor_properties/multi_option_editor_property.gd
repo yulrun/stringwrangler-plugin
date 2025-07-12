@@ -16,7 +16,6 @@ var container: VBoxContainer
 var main_container: VBoxContainer
 
 var list_display_name: String = ""
-
 var include_duplicates: bool = false
 
 
@@ -29,9 +28,30 @@ func initialize(initial_values: Array[String], options: Array[String], list_name
 	list_display_name = list_name
 	include_duplicates = allow_duplicates
 	
+	#for item in initial_values:
+		#if available_options.has(item):
+			#selected_options.append(item)
+	
+	# Clear selected options
+	selected_options.clear()
+
+	# Track seen values for uniqueness enforcement
+	var seen: Dictionary = {}
+
 	for item in initial_values:
-		if available_options.has(item):
-			selected_options.append(item)
+		if not available_options.has(item):
+			continue
+		
+		if not include_duplicates:
+			if seen.has(item):
+				continue
+			seen[item] = true
+		
+		selected_options.append(item)
+
+	# Trim the list to the max number of available options if duplicates are disallowed
+	if not include_duplicates and selected_options.size() > available_options.size():
+		selected_options = selected_options.slice(0, available_options.size())
 	
 	_setup_ui()
 	call_deferred("_refresh")
@@ -181,11 +201,30 @@ func _update_property() -> void:
 	var raw = get_edited_object().get(get_edited_property())
 	if raw == null or not raw is Array:
 		return
-	
+
 	for item in raw:
 		if typeof(item) != TYPE_STRING:
 			return
-	
-	if selected_options != raw:
-		selected_options = raw.duplicate()
+
+	var sanitized = _sanitize_options(raw)
+	if selected_options != sanitized:
+		selected_options = sanitized
 		call_deferred("_refresh")
+
+
+## Removes invalid or duplicate entries from the selected options list.
+## Ensures only valid values remain and enforces uniqueness if duplicates are not allowed.
+func _sanitize_options(options: Array[String]) -> Array[String]:
+	var result: Array[String] = []
+	var seen := {}
+
+	for item in options:
+		if not available_options.has(item):
+			continue
+		if not include_duplicates:
+			if seen.has(item):
+				continue
+			seen[item] = true
+		result.append(item)
+
+	return result

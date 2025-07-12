@@ -8,31 +8,43 @@
 @export var prefix_handlers: Dictionary = {}
 
 
-func _init() -> void:
-	add_handler("SWSamp_", "Sample String List", true, false, "raw_array", ["A", "B", "C", "D", "A", "B", "C", "D"])
-	add_handler("SWSampD_", "Sample String List", true, true, "raw_array", ["A", "B", "C", "D", "A", "B", "C", "D"])
-	#add_handler(ManaSystem.VARIABLE_PREFIX_TAG, "ManaTag List", true, "sourced_array", [], "Function", ManaSystem.get_mana_tag_registry(), "get_all_flat_names")
-
-
 ## Adds a new prefix handler entry to the registry.
 ## Safely inserts all required fields with defaults for unused properties.
 ## Will not override existing entries.
-func add_handler(prefix: String, label: String, show_none: bool, allow_duplicates: bool, source_type: String, raw_values: Array[String] = [] as Array[String], call_type: String = "", script_resource: Resource = null, call_name: String = "") -> void:
+func add_handler(prefix: String, label: String, show_none: bool, allow_duplicates: bool, call_type: String = "", script_resource: Resource = null, call_name: String = "", description: String = "No Description") -> void:
 	if prefix_handlers.has(prefix):
 		return
+	
+	if label.strip_edges().is_empty():
+		label = "StringWrangler List"
 	
 	prefix_handlers[prefix] = {
 		"label": label,
 		"show_none": show_none,
 		"allow_duplicates": allow_duplicates,
-		"source_type": source_type,
-		"raw_values": raw_values,
 		"source": {
 			"type": call_type,
 			"script_resource": script_resource,
 			"call_name": call_name
-		}
+		},
+		"description": description
 	}
+
+
+## Removes a handler from the prefix_handlers Dictionary based on the Handler Prefix
+func remove_handler(prefix: String) -> void:
+	if not has(prefix):
+		return
+	
+	prefix_handlers.erase(prefix)
+
+
+## Returns an array of strings for every handler prefix
+func get_handlers() -> Array[String]:
+	var return_values: Array[String] = []
+	for key in prefix_handlers.keys():
+		return_values.append(key)
+	return return_values
 
 
 ## Checks if a prefix has a registered handler.
@@ -46,6 +58,7 @@ func get_label(prefix: String) -> String:
 		return "StringList"
 	var handler: Dictionary = prefix_handlers[prefix]
 	return handler.get("label", "StringList")
+
 
 ## Returns whether you want your dropdowns to include duplicate selection and/or options
 func get_allow_duplicates(prefix: String) -> bool:
@@ -72,40 +85,35 @@ func get_dataset(prefix: String) -> Array[String]:
 		return return_array
 	
 	var handler: Dictionary = prefix_handlers[prefix]
-	var source_type: String = handler.get("source_type", "")
+	var source: Dictionary = handler.get("source", {})
+	var source_object: Object = source.get("script_resource", null)
+	var call_name: String = source.get("call_name", "")
+	var call_type: String = source.get("type", "")
 	
-	match source_type:
-		"raw_array":
-			var raw_values: Array[String] = handler.get("raw_values", []) as Array[String]
-			return_array = raw_values
+	if source_object == null or call_name == "":
+		return return_array
+	
+	var instance: Variant = source_object
+	if source_object is Script and source_object.can_instantiate():
+		instance = source_object.new()
+	
+	match call_type:
+		"Function":
+			if instance.has_method(call_name):
+				var result = instance.call(call_name)
+				if result is Array and result.all(func(x): return typeof(x) == TYPE_STRING):
+					var func_values: Array[String] = result as Array[String]
+					return_array = func_values
 		
-		"sourced_array":
-			var source: Dictionary = handler.get("source", {})
-			var script: Object = source.get("script_resource", null)
-			var call_name: String = source.get("call_name", "")
-			var call_type: String = source.get("type", "")
-			
-			if script == null or call_name == "":
-				return return_array
-			
-			match call_type:
-				"Function":
-					if script.has_method(call_name):
-						var result := script.call(call_name)
-						if result is Array and result.all(func(x): return typeof(x) == TYPE_STRING):
-							var func_values: Array[String] = result as Array[String]
-							return_array = func_values
-
-				"Variable":
-					if script.has_property(call_name):
-						var value := script.get(call_name)
-						if value is Array and value.all(func(x): return typeof(x) == TYPE_STRING):
-							var vari_values: Array[String] = value as Array[String]
-							return_array = vari_values
-		
-		_:
-			# Unknown type fallback
-			return get_filtered_array(return_array)
+		"Variable":
+			var has_variable: bool = false
+			if instance.get(call_name) != null:
+				has_variable = true
+			if has_variable:
+				var value = instance.get(call_name)
+				if value is Array and value.all(func(x): return typeof(x) == TYPE_STRING):
+					var vari_values: Array[String] = value as Array[String]
+					return_array = vari_values
 	
 	return get_filtered_array(return_array)
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StringWranglerResourceExample" load_steps=2 format=3 uid="uid://bo13gxd8eoon7"]
+
+[ext_resource type="Script" uid="uid://dlf0xca176t4e" path="res://addons/string_wrangler/sample/string_wrangler_resource.gd" id="1_0uekm"]
+
+[resource]
+script = ExtResource("1_0uekm")
+SWSampA_string = ""
+SWSampA_string_array = Array[String]([])
+SWSampB_string = ""
+SWSampB_string_array = Array[String](["Key A", "Key B", "Key C", "Key D"])
+SWSampC_string = ""
+SWSampC_string_array = Array[String](["Something 1", "Something 2"])
+metadata/_custom_type_script = "uid://dlf0xca176t4e"

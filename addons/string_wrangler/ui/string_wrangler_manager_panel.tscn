@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://crr8fp6kl4305"]
+[gd_scene load_steps=7 format=3 uid="uid://crr8fp6kl4305"]
 
 [ext_resource type="Script" uid="uid://bhk83j76omft1" path="res://addons/string_wrangler/ui/string_wrangler_manager_panel.gd" id="1_x0pe6"]
+[ext_resource type="Script" uid="uid://d12m71sqlk0v0" path="res://addons/string_wrangler/ui/popup_window.gd" id="2_ewppb"]
 
-[sub_resource type="Image" id="Image_x0pe6"]
+[sub_resource type="Image" id="Image_ewppb"]
 data = {
 "data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 255, 92, 92, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 255, 93, 93, 255, 255, 92, 92, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 91, 91, 42, 0, 0, 0, 0, 0, 0, 0, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 93, 93, 41, 0, 0, 0, 0, 0, 0, 0, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 91, 91, 45, 255, 93, 93, 44, 0, 0, 0, 0, 255, 91, 91, 42, 255, 91, 91, 42, 0, 0, 0, 0, 255, 91, 91, 45, 255, 93, 93, 44, 0, 0, 0, 0, 255, 91, 91, 42, 255, 91, 91, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 0, 0, 0, 0, 0, 0, 0, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "format": "RGBA8",
@@ -11,8 +12,22 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_ewppb"]
-image = SubResource("Image_x0pe6")
+[sub_resource type="ImageTexture" id="ImageTexture_atinf"]
+image = SubResource("Image_ewppb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ewppb"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 0.352941)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ewppb"]
+color = Color(0, 0, 0, 0.482353)
 
 [node name="StringWranglerManagerPanel" type="VBoxContainer"]
 anchors_preset = 15
@@ -31,19 +46,155 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-icon = SubResource("ImageTexture_ewppb")
+tooltip_text = "Add Prefix Handler"
+icon = SubResource("ImageTexture_atinf")
 
 [node name="FilterBar" type="LineEdit" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Filter Prefix's"
+placeholder_text = "Filter Prefix's"
+right_icon = SubResource("ImageTexture_atinf")
 
 [node name="ExpandCollapseButton" type="Button" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
+tooltip_text = "Expand All Tree Elements"
+icon = SubResource("ImageTexture_atinf")
 
 [node name="Tree" type="Tree" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+columns = 3
+hide_root = true
+
+[node name="PopupWindow" type="AcceptDialog" parent="."]
+unique_name_in_owner = true
+title = "Prefix Window"
+size = Vector2i(800, 616)
+min_size = Vector2i(800, 0)
+ok_button_text = "Confirm"
+script = ExtResource("2_ewppb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupWindow"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 792.0
+offset_bottom = 707.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="InfoPanelContainer" type="PanelContainer" parent="PopupWindow/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ewppb")
+
+[node name="InfoLabel" type="Label" parent="PopupWindow/VBoxContainer/InfoPanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "The prefix name can be anything, but it’s recommended to start it with a capital letter for clarity, since Godot’s naming convention uses snake_case for variable names — making prefixed variables easier to spot.
+
+Source scripts should also be tagged as @tool to ensure data can be accessed in the editor!"
+autowrap_mode = 2
+
+[node name="HBarPanelTop" type="Panel" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_ewppb")
+
+[node name="GeneralSettingsLabel" type="Label" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+text = "General Settings:"
+
+[node name="NameContainer" type="HBoxContainer" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="PrefixNameLineEdit" type="LineEdit" parent="PopupWindow/VBoxContainer/NameContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Prefix Name"
+emoji_menu_enabled = false
+
+[node name="LabelNameLineEdit" type="LineEdit" parent="PopupWindow/VBoxContainer/NameContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "The name that will showup in editor, similar to array fields [String Array (#)]."
+placeholder_text = "Editor Multi Label Name"
+emoji_menu_enabled = false
+
+[node name="OptionsContainer" type="HBoxContainer" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="ShowNoneCheckButton" type="CheckButton" parent="PopupWindow/VBoxContainer/OptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Include the (None) option in Single String Dropdowns. If this is disabled, the dropdown acts as a mandatory selection, with None you can reference \"\" empty strings as no choice."
+text = "Show (None)"
+
+[node name="IncludeDuplicatesCheckButton" type="CheckButton" parent="PopupWindow/VBoxContainer/OptionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Do you want users in your Array elements to be able to select the same element more than once?"
+text = "Include Duplicates"
+
+[node name="DescriptionTextEdit" type="TextEdit" parent="PopupWindow/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 93)
+layout_mode = 2
+placeholder_text = "Prefix Handler Description"
+
+[node name="HBarPanelBottom" type="Panel" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_ewppb")
+
+[node name="SourceArrayLabel" type="Label" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+text = "Array Data Source:"
+
+[node name="SourcePathLineEdit" type="LineEdit" parent="PopupWindow/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Source File Path"
+
+[node name="HBarPanelTop3" type="Panel" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_ewppb")
+
+[node name="SourceTypeLabel" type="Label" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+text = "Access Type:"
+
+[node name="FunctionVarContainer" type="HBoxContainer" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SourceTypeOptionButton" type="OptionButton" parent="PopupWindow/VBoxContainer/FunctionVarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Function"
+popup/item_0/id = 0
+popup/item_1/text = "Variable"
+popup/item_1/id = 1
+
+[node name="CallTypeLineEdit" type="LineEdit" parent="PopupWindow/VBoxContainer/FunctionVarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Function Name"
+
+[node name="HBarPanelBottom2" type="Panel" parent="PopupWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_ewppb")
