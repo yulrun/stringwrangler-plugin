@@ -2,7 +2,7 @@
 <h1 align="center">STRINGWrangler</h1>
 
 <p align="center">
-  <a href="https://tiptopjar.com/IndieGameDad">💸 Tip the Developer</a>
+  <a href="https://ko-fi.com/indiegamedad">☕ Buy me a Coffee!</a>
 </p>
 
 ---
