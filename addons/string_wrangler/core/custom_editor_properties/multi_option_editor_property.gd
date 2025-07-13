@@ -214,8 +214,8 @@ func _update_property() -> void:
 
 ## Removes invalid or duplicate entries from the selected options list.
 ## Ensures only valid values remain and enforces uniqueness if duplicates are not allowed.
-func _sanitize_options(options: Array[Variant]) -> Array[String]:
-	var result: Array[String] = []
+func _sanitize_options(options: Array[Variant]) -> Array[Variant]:
+	var result: Array[Variant] = []
 	var seen := {}
 
 	for item in options:
