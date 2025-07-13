@@ -78,8 +78,8 @@ func get_show_none(prefix: String) -> bool:
 
 ## Returns the list of strings for the given prefix using the defined source.
 ## Supports raw arrays and dynamically sourced arrays (via function or variable).
-func get_dataset(prefix: String) -> Array[String]:
-	var return_array: Array[String] = [] as Array[String]
+func get_dataset(prefix: String) -> Array[Variant]:
+	var return_array: Array[Variant] = [] as Array[Variant]
 	
 	if not has(prefix):
 		return return_array
@@ -97,13 +97,19 @@ func get_dataset(prefix: String) -> Array[String]:
 	if source_object is Script and source_object.can_instantiate():
 		instance = source_object.new()
 	
+	var is_basic_string: bool = true
+	
 	match call_type:
 		"Function":
 			if instance.has_method(call_name):
 				var result = instance.call(call_name)
 				if result is Array and result.all(func(x): return typeof(x) == TYPE_STRING):
 					var func_values: Array[String] = result as Array[String]
-					return_array = func_values
+					return_array = func_values  as Array[String]
+				elif result is Array and result.all(func(x): return typeof(x) == TYPE_STRING_NAME):
+					is_basic_string = false
+					var func_values: Array[StringName] = result as Array[StringName]
+					return_array = func_values  as Array[StringName]
 		
 		"Variable":
 			var has_variable: bool = false
@@ -113,21 +119,37 @@ func get_dataset(prefix: String) -> Array[String]:
 				var value = instance.get(call_name)
 				if value is Array and value.all(func(x): return typeof(x) == TYPE_STRING):
 					var vari_values: Array[String] = value as Array[String]
-					return_array = vari_values
+					return_array = vari_values  as Array[String]
+				elif value is Array and value.all(func(x): return typeof(x) == TYPE_STRING_NAME):
+					is_basic_string = false
+					var vari_values: Array[StringName] = value as Array[StringName]
+					return_array = vari_values as Array[StringName]
 	
-	return get_filtered_array(return_array)
+	var filtered_array := get_filtered_array(return_array)
+	
+	if is_basic_string:
+		var string_return_array: Array[String]
+		for value in return_array:
+			string_return_array.append(value)
+		return string_return_array as Array[String]
+		
+	else:
+		var stringname_return_array: Array[String]
+		for value in return_array:
+			stringname_return_array.append(value)
+		return stringname_return_array as Array[StringName]
 
 
 ## Returns a new array with all duplicate strings removed.
 ## Used to enforce unique-only dropdown values when allow_duplicates is false.
-func get_filtered_array(array: Array[String]) -> Array[String]:
+func get_filtered_array(array: Array[Variant]) -> Array[Variant]:
 	if array.is_empty():
-		return [] as Array[String]
+		return []
 		
-	var unique_strings: Array[String] = []
+	var unique_strings: Array[Variant] = []
 	
 	for string in array:
 		if not unique_strings.has(string):
 			unique_strings.append(string)
 	
-	return unique_strings as Array[String]
+	return unique_strings

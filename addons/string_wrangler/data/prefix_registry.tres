@@ -38,6 +38,17 @@ prefix_handlers = {
 "script_resource": ExtResource("1_604vi"),
 "type": "Function"
 }
+},
+"SWSampD_": {
+"allow_duplicates": false,
+"description": "",
+"label": "Sample D",
+"show_none": false,
+"source": {
+"call_name": "sample_function_c",
+"script_resource": ExtResource("1_604vi"),
+"type": "Function"
+}
 }
 }
 metadata/_custom_type_script = "uid://d37xp73kchn28"

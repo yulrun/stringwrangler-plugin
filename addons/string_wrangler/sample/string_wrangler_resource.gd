@@ -15,3 +15,7 @@ class_name StringWranglerResourceExample extends Resource
 @export_category("Samples from Dataset with 'None', and Duplicates")
 @export var SWSampC_string: String = ""
 @export var SWSampC_string_array: Array[String] = []
+
+@export_category("Samples from StringName Dataset")
+@export var SWSampD_string: StringName = ""
+@export var SWSampD_string_array: Array[StringName] = []

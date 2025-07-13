@@ -43,10 +43,23 @@ func _handle_prefixed_property(object: Object, type: Variant.Type, name: String,
 			add_property_editor(name, editor, false, clean_label)
 			return true
 		
+		TYPE_STRING_NAME:
+			var choices: Array[String] = data_set
+			var current_value: String = object.get(name)
+			var dropdown_data: Dictionary = _create_dropdown(choices, current_value, show_none)
+			var editor: EditorProperty = EditorPropertyOptionWrapper.new(dropdown_data.dropdown, dropdown_data.show_none)
+			add_property_editor(name, editor, false, clean_label)
+			return true
+		
 		TYPE_ARRAY:
 			var array_val = object.get(name)
 			# Ensure all array values are Strings
 			if array_val.all(func(x): return typeof(x) == TYPE_STRING):
+				var editor: MultiOptionEditorProperty = MultiOptionEditorProperty.new()
+				editor.initialize(array_val, data_set, list_name, allow_duplicates)
+				add_property_editor(name, editor, false, clean_label)
+				return true
+			elif array_val.all(func(x): return typeof(x) == TYPE_STRING_NAME):
 				var editor: MultiOptionEditorProperty = MultiOptionEditorProperty.new()
 				editor.initialize(array_val, data_set, list_name, allow_duplicates)
 				add_property_editor(name, editor, false, clean_label)

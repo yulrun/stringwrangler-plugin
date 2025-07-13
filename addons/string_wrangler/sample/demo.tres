@@ -10,4 +10,6 @@ SWSampB_string = ""
 SWSampB_string_array = Array[String](["Key A", "Key B", "Key C", "Key D"])
 SWSampC_string = ""
 SWSampC_string_array = Array[String](["Something 1", "Something 2"])
+SWSampD_string = "A"
+SWSampD_string_array = Array[String](["A"])
 metadata/_custom_type_script = "uid://dlf0xca176t4e"

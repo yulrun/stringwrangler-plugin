@@ -21,7 +21,7 @@ var include_duplicates: bool = false
 
 ## Initializes the editor with a list of selectable values and currently selected items.
 ## Called by the StringPrefixHandler to setup multi-value dropdown UI.
-func initialize(initial_values: Array[String], options: Array[String], list_name: String = "StringList", allow_duplicates: bool = false) -> void:
+func initialize(initial_values: Array[Variant], options: Array[Variant], list_name: String = "StringList", allow_duplicates: bool = false) -> void:
 	available_options = options.duplicate()
 	selected_options.clear()
 	
@@ -214,7 +214,7 @@ func _update_property() -> void:
 
 ## Removes invalid or duplicate entries from the selected options list.
 ## Ensures only valid values remain and enforces uniqueness if duplicates are not allowed.
-func _sanitize_options(options: Array[String]) -> Array[String]:
+func _sanitize_options(options: Array[Variant]) -> Array[String]:
 	var result: Array[String] = []
 	var seen := {}
 

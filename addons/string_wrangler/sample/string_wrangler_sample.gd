@@ -7,6 +7,8 @@
 ## Sample Simple Array
 var sample_array: Array[String] = ["Value A", "Value B", "Value C", "Value D", "Value A", "Value B", "Value C", "Value D"]
 
+var sample_name_array: Array[StringName] = [&"A", &"B", &"C", &"D"]
+
 ## Sample Dataset
 var sample_dataset: Dictionary = {
 	"Key A": {
@@ -49,3 +51,5 @@ func sample_function_b() -> Array[String]:
 			array.append(new_value)
 	
 	return array as Array[String]
+
+func sample_function_c() -> Array[StringName]: return sample_name_array
